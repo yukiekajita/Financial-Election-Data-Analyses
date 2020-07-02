@@ -67,3 +67,6 @@ with open(budget_data, 'r') as csvfile:
     print(f"Greatest Increase in Profits: {greatest_increase_month} $({formatted_greatest_increase})")
     print(f"Greatest Decrease in Profits: {greatest_decrease_month} $({formatted_greatest_decrease})")
     print("                                                            ")
+
+## Make Python Output in Text File
+#### Type $python3 main.py >> output.txt

@@ -42,26 +42,34 @@ with open(election_data, 'r') as csvfile:
 # print(f'{can_list.index(can_name)}')
 
 can_percent = []
+max_votes = can_vote_count[0]
+max_index = 0
+
 for x in range (len(can_list)):
-    vote_percent = (can_vote_count[x] / total_votes * 100)
+    vote_percent = round(can_vote_count[x] / total_votes * 100, 3)
     can_percent.append(vote_percent)
 
-print(f'Vote Count for each candidate: {can_vote_count}')
-print(f'Vote Percent for each candidate: {can_percent}')
+#print(f'Vote Count for each candidate: {can_vote_count}')
+#print(f'Vote Percent for each candidate: {can_percent}')
 
-# #Find a winner
-# candidate_vote_list = total_candidate_vote_list + [khan_vote] + [correy_vote] + [li_vote] + [otooley_vote]
-# max_votes_index = max(total_candidate_vote.values()) 
-# first = [i for i in total_candidate_vote.keys() if total_candidate_vote[i]==winner]
-# print(sorted(first)[0])
+    # Find a winner from the election
+    if can_vote_count[x] > max_votes:
+        max_votes = can_vote_count[x]
+        max_index = x
+    
+winner = can_list[max_index]
+#print(winner)
 
-# print("                                                            ")
-# print("Election Results")
-# print("------------------------------------------------------------")
-# print(f"Total Votes: {total_votes}")
-# print("------------------------------------------------------------")
-# print(f"Khan: {formatted_khan_vote_percentage}% ({len(net_khan_list)})")
-# print(f"Correy: {formatted_correy_vote_percentage}% ({len(net_correy_list)})")
-# print(f"Li: {formatted_li_vote_percentage}% ({len(net_li_list)})")
-# print(f"O'Tooley: {formatted_otooley_vote_percentage}% ({len(net_otooley_list)})")
-# print("------------------------------------------------------------")   
+print("                                                            ")
+print("Election Results")
+print("------------------------------------------------------------")
+print(f"Total Votes: {total_votes}")
+print("------------------------------------------------------------")
+for x in range (len(can_list)):
+    print(f'{can_list[x]}: {can_percent[x]}% ({can_vote_count[x]})')
+print("------------------------------------------------------------") 
+print(f'Winner: {winner}')
+print("------------------------------------------------------------") 
+
+## Make Python Result Output in Texfile
+###Type "$python3 main.py >> output.text"
