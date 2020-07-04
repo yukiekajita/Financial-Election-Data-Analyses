@@ -36,7 +36,7 @@ with open(election_data, 'r') as csvfile:
             can_list.append(can_name)
             can_vote_count.append(1)
 
-# #print results
+# #Checking results: print results
 # print(total_votes)
 # print(f'each candidate: {can_list}')
 # print(f'{can_list.index(can_name)}')
@@ -44,21 +44,24 @@ with open(election_data, 'r') as csvfile:
 can_percent = []
 max_votes = can_vote_count[0]
 max_index = 0
+can_rank_list = []
 
 for x in range (len(can_list)):
-    vote_percent = round(can_vote_count[x] / total_votes * 100, 3)
+    vote_percent = (can_vote_count[x] / total_votes * 100)
     can_percent.append(vote_percent)
 
-#print(f'Vote Count for each candidate: {can_vote_count}')
-#print(f'Vote Percent for each candidate: {can_percent}')
+##Checking results
+# print(f'Vote Count for each candidate: {can_vote_count}')
+# print(f'Vote Percent for each candidate: {can_percent}')
 
     # Find a winner from the election
     if can_vote_count[x] > max_votes:
         max_votes = can_vote_count[x]
         max_index = x
-    
+
 winner = can_list[max_index]
-#print(winner)
+##Checking results
+# print(winner)
 
 print("                                                            ")
 print("Election Results")
@@ -66,7 +69,7 @@ print("------------------------------------------------------------")
 print(f"Total Votes: {total_votes}")
 print("------------------------------------------------------------")
 for x in range (len(can_list)):
-    print(f'{can_list[x]}: {can_percent[x]}% ({can_vote_count[x]})')
+    print(f'{can_list[x]}: {can_percent[x]:.3f}% ({can_vote_count[x]})')   
 print("------------------------------------------------------------") 
 print(f'Winner: {winner}')
 print("------------------------------------------------------------") 
