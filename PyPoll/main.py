@@ -7,7 +7,6 @@ election_data = os.path.join('Resources/election_data.csv')
 
 # Track various financial parameters
 total_votes = 0
-can_vote_count = 0
 can_list = []
 can_vote_count = []
 
@@ -15,15 +14,13 @@ with open(election_data, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     header = next(csvreader)
     
-    first_row = next(csvreader)
-    total_votes = total_votes + 1
-
     for row in csvreader:
 
-        # Count row numbers for obtaining total votes number
+        # Starting +1 to count row numbers for obtaining total votes number and first row candidate name
         total_votes = total_votes + 1
+        can_vote_count.append(1)
 
-        # Start to accumulate candidates' name by comparing candidate name through loop
+        # Start to accumulate candidates' name by comparing candidate names between rows through loop
         # Put first found name in list
         can_name = row[2]
 
@@ -32,11 +29,11 @@ with open(election_data, 'r') as csvfile:
             can_vote_count[can_index] = can_vote_count[can_index] + 1
 
         else:
-            # Add candidate name to list if loop finds a new candidate name
+            # Add candidate name to list if a loop finds a new candidate name
             can_list.append(can_name)
             can_vote_count.append(1)
 
-# #Checking results: print results
+# #Checking results
 # print(total_votes)
 # print(f'each candidate: {can_list}')
 # print(f'{can_list.index(can_name)}')
