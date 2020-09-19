@@ -16,6 +16,11 @@
 
   * The greatest decrease in losses (date and amount) over the entire period
   
+* Budget Summary & Result
+
+
+![Budget_result](Readme_Images/Budget_result.png)
+  
  ## PyPoll
 
 * In this challenge, I was tasked with helping a small, rural town modernize its vote counting process.
@@ -31,3 +36,11 @@
   * The total number of votes each candidate won
 
   * The winner of the election based on popular vote.
+
+* Election Summary & Result
+
+
+![Election_result](Readme_Images/Election_result.png)
+
+
+Enjoy!
